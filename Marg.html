@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Discourse</title>
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231e1e1e' stroke='%23d4af37' stroke-width='2'/%3E%3Cpath d='M32 14c-4 8-8 16-8 23a8 8 0 0 0 16 0c0-7-4-15-8-23z' fill='%23d4af37'/%3E%3Cpath d='M22 28c-4 6-5 12-2 16 3 3 8 1 10-3-1-5-4-9-8-13z' fill='%23d4af37' opacity='0.75'/%3E%3Cpath d='M42 28c4 6 5 12 2 16-3 3-8 1-10-3 1-5 4-9 8-13z' fill='%23d4af37' opacity='0.75'/%3E%3Ccircle cx='32' cy='36' r='3.5' fill='%231e1e1e'/%3E%3C/svg%3E">
+    
+    <style>
+        /* Base Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: sans-serif;
+            background-color: #000;
+        }
+
+        /* Fullscreen Background Image */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* The ImageKit URL is right here: */
+            background-image: url('https://ik.imagekit.io/oshowebworldcr/osho.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+        }
+
+        /* Dark overlay to ensure the dark audio player pops out */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 15, 15, 0.7); 
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px); 
+            z-index: -1;
+        }
+
+        /* Container to perfectly center the player */
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Frosted Glass Wrapper for the Player */
+        .audio-wrapper {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(30, 30, 30, 0.5); 
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+        }
+
+        /* Override iframe inline styles for responsiveness */
+        .audio-wrapper iframe {
+            width: 100% !important;
+            border-radius: 8px !important;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        /* Author Link Styling */
+        .author-link {
+            text-align: center;
+            display: block;
+            color: #A4ABB6;
+            font-size: 13px;
+            line-height: 16px;
+            margin-top: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .author-link:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="background"></div>
+    <div class="overlay"></div>
+
+    <div class="center-container">
+        <div class="audio-wrapper">
+            
+            <iframe src="https://audio.com/embed/v2/audio/1875386404036143?theme=dark&layout=fixed&cover=true&footer=true&author=true&watermark=true" style="display:block; border: none; height: 235px;" loading="lazy" data-audiocom-embed></iframe>
+            
+            <a href="https://audio.com/garry-1875385333193660" target="_blank" class="author-link">
+                @garry-1875385333193660
+            </a>
+            
+            <script src="https://audio.com/embed.js" async></script>
+            
+        </div>
+    </div>
+
+</body>
+</html>
