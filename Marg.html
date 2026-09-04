@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MARG</title>
+    <title>Words of Wisdom & Meditation</title>
     
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231e1e1e' stroke='%23d4af37' stroke-width='2'/%3E%3Cpath d='M32 14c-4 8-8 16-8 23a8 8 0 0 0 16 0c0-7-4-15-8-23z' fill='%23d4af37'/%3E%3Cpath d='M22 28c-4 6-5 12-2 16 3 3 8 1 10-3-1-5-4-9-8-13z' fill='%23d4af37' opacity='0.75'/%3E%3Cpath d='M42 28c4 6 5 12 2 16-3 3-8 1-10-3 1-5 4-9 8-13z' fill='%23d4af37' opacity='0.75'/%3E%3Ccircle cx='32' cy='36' r='3.5' fill='%231e1e1e'/%3E%3C/svg%3E">
 
     <style>
@@ -56,7 +57,8 @@
         /* Audio Player Section */
         .audio-container {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             padding: 2rem;
             background-color: var(--surface-color);
             border-top: 1px solid #333;
@@ -75,6 +77,28 @@
             width: 100% !important;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border-radius: 8px !important;
+        }
+        
+        /* Instagram CTA Button */
+        .instagram-cta {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 12px 28px;
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .instagram-cta:hover {
+            background-color: var(--accent);
+            color: var(--bg-color);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
         }
 
         /* Content Grid (Images & Quotes) */
@@ -136,6 +160,16 @@
             color: var(--text-muted);
             font-size: 0.9rem;
         }
+        
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        footer a:hover {
+            color: #fff;
+        }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
@@ -150,6 +184,10 @@
             .quote-text {
                 font-size: 1.5rem;
             }
+            .instagram-cta {
+                font-size: 0.85rem;
+                padding: 12px 20px;
+            }
         }
     </style>
 </head>
@@ -161,8 +199,10 @@
     </header>
 
     <main>
+        <!-- Audio Section -->
         <section class="audio-container">
             <div class="audio-wrapper">
+                <!-- Embedded Audio Player -->
                 <iframe src="https://audio.com/embed/v2/audio/1875386404036143?theme=dark&layout=fixed&cover=true&footer=true&author=true&watermark=true" style="display:block; border: none; height: 235px;" loading="lazy" data-audiocom-embed></iframe>
                 
                 <a href="https://audio.com/garry-1875385333193660" target="_blank" style="text-align: center; display: block; color: #A4ABB6; font-size: 12px; font-family: sans-serif; line-height: 16px; margin-top: 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-decoration: none; transition: color 0.2s;">
@@ -170,10 +210,17 @@
                 </a>
                 <script src="https://audio.com/embed.js" async></script>
             </div>
+            
+            <!-- Instagram Call to Action -->
+            <a href="https://instagram.com/garry.sfe" target="_blank" class="instagram-cta">
+                Follow @garry.sfe on Instagram for more audiobooks
+            </a>
         </section>
 
+        <!-- Gallery and Quotes Section -->
         <section class="content-grid">
             
+            <!-- Row 1 -->
             <div class="grid-row">
                 <div class="image-col">
                     <img src="https://ik.imagekit.io/oshowebworldcr/osho.jpg" alt="Portrait" loading="lazy">
@@ -186,6 +233,7 @@
                 </div>
             </div>
 
+            <!-- Row 2 (Reversed) -->
             <div class="grid-row reverse">
                 <div class="image-col">
                     <img src="https://ik.imagekit.io/oshowebworldcr/osho%20(1).jpg" alt="Meditation" loading="lazy">
@@ -198,6 +246,7 @@
                 </div>
             </div>
 
+            <!-- Row 3 -->
             <div class="grid-row">
                 <div class="image-col">
                     <img src="https://ik.imagekit.io/oshowebworldcr/Osho%20Book.jpg" alt="Book Cover" loading="lazy">
@@ -214,7 +263,8 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Osho Web World. All rights reserved.</p>
+        <p>Follow <a href="https://instagram.com/garry.sfe" target="_blank">@garry.sfe</a> on Instagram for more audiobooks.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">&copy; 2026 Osho Web World. All rights reserved.</p>
     </footer>
 
 </body>
