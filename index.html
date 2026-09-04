@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Words of Wisdom & Meditation</title>
+    <style>
+        /* Import elegant fonts from Google */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap');
+
+        :root {
+            --bg-color: #121212;
+            --surface-color: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent: #d4af37; /* Soft gold for subtle accents */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .quote-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Audio Player Section */
+        .audio-container {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+            background-color: var(--surface-color);
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            margin-bottom: 4rem;
+        }
+
+        /* Override the inline 500px width for mobile responsiveness */
+        .audio-wrapper {
+            width: 100% !important;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .audio-wrapper iframe {
+            width: 100% !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-radius: 8px !important;
+        }
+
+        /* Content Grid (Images & Quotes) */
+        .content-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .grid-row {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        /* Reverse row for alternating layout */
+        .grid-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .image-col, .text-col {
+            flex: 1;
+        }
+
+        .image-col img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .image-col img:hover {
+            transform: scale(1.02);
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .quote-author {
+            font-size: 1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background-color: var(--surface-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            .grid-row, .grid-row.reverse {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+            .quote-text {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Awakening</h1>
+        <p>Listen to the audio discourse and reflect on the words below.</p>
+    </header>
+
+    <main>
+        <section class="audio-container">
+            <div class="audio-wrapper" style="width: 500px;">
+                <iframe src="https://audio.com/embed/v2/audio/1875385417522549?theme=dark&layout=fixed&cover=true&footer=true&author=true&watermark=true" style="display:block; border: none; height: 235px;" loading="lazy" data-audiocom-embed></iframe>
+                
+                <a href="https://audio.com/garry-1875385333193660" target="_blank" style="text-align: center; display: block; color: #A4ABB6; font-size: 12px; font-family: sans-serif; line-height: 16px; margin-top: 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-decoration: none; transition: color 0.2s;">
+                    @garry-1875385333193660
+                </a>
+                <script src="https://audio.com/embed.js" async></script>
+            </div>
+        </section>
+
+        <section class="content-grid">
+            
+            <div class="grid-row">
+                <div class="image-col">
+                    <img src="https://ik.imagekit.io/oshowebworldcr/osho.jpg" alt="Portrait" loading="lazy">
+                </div>
+                <div class="text-col">
+                    <div class="quote-text">
+                        "Experience life in all possible ways — good-bad, bitter-sweet, dark-light, summer-winter. Experience all the dualities. Don't be afraid of experience, because the more experience you have, the more mature you become."
+                    </div>
+                    <div class="quote-author">— Osho</div>
+                </div>
+            </div>
+
+            <div class="grid-row reverse">
+                <div class="image-col">
+                    <img src="https://ik.imagekit.io/oshowebworldcr/osho%20(1).jpg" alt="Meditation" loading="lazy">
+                </div>
+                <div class="text-col">
+                    <div class="quote-text">
+                        "If you love a flower, don’t pick it up. Because if you pick it up it dies and it ceases to be what you love. So if you love a flower, let it be. Love is not about possession. Love is about appreciation."
+                    </div>
+                    <div class="quote-author">— Osho</div>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="image-col">
+                    <img src="https://ik.imagekit.io/oshowebworldcr/Osho%20Book.jpg" alt="Book Cover" loading="lazy">
+                </div>
+                <div class="text-col">
+                    <div class="quote-text">
+                        "To be creative means to be in love with life. You can be creative only if you love life enough that you want to enhance its beauty, you want to bring a little more music to it, a little more poetry to it, a little more dance to it."
+                    </div>
+                    <div class="quote-author">— Osho</div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Osho Web World. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
