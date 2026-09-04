@@ -3,269 +3,339 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Words of Wisdom & Meditation</title>
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%231e1e1e' stroke='%23d4af37' stroke-width='2'/%3E%3Cpath d='M32 14c-4 8-8 16-8 23a8 8 0 0 0 16 0c0-7-4-15-8-23z' fill='%23d4af37'/%3E%3Cpath d='M22 28c-4 6-5 12-2 16 3 3 8 1 10-3-1-5-4-9-8-13z' fill='%23d4af37' opacity='0.75'/%3E%3Cpath d='M42 28c4 6 5 12 2 16-3 3-8 1-10-3 1-5 4-9 8-13z' fill='%23d4af37' opacity='0.75'/%3E%3Ccircle cx='32' cy='36' r='3.5' fill='%231e1e1e'/%3E%3C/svg%3E">
-
+    <title>Osho: Jeevan ki khoj part-2(MARG)</title>
     <style>
-        /* Import elegant fonts from Google */
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-        :root {
-            --bg-color: #121212;
-            --surface-color: #1e1e1e;
-            --text-main: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --accent: #d4af37; /* Soft gold for subtle accents */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-main);
             font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, .quote-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-        }
-
-        header {
-            text-align: center;
-            padding: 4rem 2rem 2rem;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin: 0 0 10px 0;
-            color: var(--accent);
-            letter-spacing: 2px;
-        }
-
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Audio Player Section */
-        .audio-container {
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 80vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            padding: 2rem;
-            background-color: var(--surface-color);
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-            margin-bottom: 4rem;
+            padding: 60px 5%;
+            background-image: url('https://ik.imagekit.io/oshowebworldcr/osho.jpg');
+            background-size: cover;
+            background-position: center top;
+            background-attachment: fixed;
+            z-index: 1;
         }
 
-        /* Responsive Audio Wrapper */
-        .audio-wrapper {
-            width: 100% !important;
-            max-width: 500px;
+        /* Dark overlay gradient to make text pop */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.7) 50%, rgba(10, 10, 10, 0.4) 100%);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Hero Left: Titles, Audio, Button */
+        .hero-left h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-left p.subtitle {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+
+        .audio-wrapper {
+            margin-bottom: 25px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .audio-wrapper iframe {
             width: 100% !important;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             border-radius: 8px !important;
         }
-        
-        /* Instagram CTA Button */
-        .instagram-cta {
-            display: inline-block;
-            margin-top: 2rem;
-            padding: 12px 28px;
-            background-color: transparent;
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            border-radius: 30px;
+
+        /* Styled exactly like the red gradient button in your image */
+        .primary-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(90deg, #e52d27 0%, #b31217 100%);
+            color: #fff;
             text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(229, 45, 39, 0.3);
         }
 
-        .instagram-cta:hover {
-            background-color: var(--accent);
-            color: var(--bg-color);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 45, 39, 0.5);
         }
 
-        /* Content Grid (Images & Quotes) */
-        .content-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 2rem 4rem;
+        /* Hero Right: Glassmorphism Cards */
+        .hero-right {
             display: flex;
             flex-direction: column;
-            gap: 4rem;
+            gap: 20px;
+            padding-right: 20px;
         }
 
-        .grid-row {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
+        .glass-card {
+            background: rgba(30, 30, 30, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
-        /* Reverse row for alternating layout */
-        .grid-row.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .image-col, .text-col {
-            flex: 1;
-        }
-
-        .image-col img {
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-            transition: transform 0.3s ease;
-            display: block;
-        }
-
-        .image-col img:hover {
-            transform: scale(1.02);
-        }
-
-        .quote-text {
-            font-size: 1.8rem;
-            line-height: 1.4;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .quote-author {
+        /* Information List styling (Top Card) */
+        .glass-card h3 {
             font-size: 1rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 15px;
         }
 
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            background-color: var(--surface-color);
-            color: var(--text-muted);
+        .info-list {
+            list-style: none;
             font-size: 0.9rem;
         }
-        
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        footer a:hover {
-            color: #fff;
+
+        .info-list li {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            margin-bottom: 10px;
+            align-items: start;
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
+        .info-list li span:first-child {
+            color: #888;
+            font-weight: 500;
+        }
+
+        .info-list li span:last-child {
+            color: #ddd;
+            font-weight: 600;
+        }
+
+        /* Highlight Card styling (Bottom Card) */
+        .highlight-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .highlight-content img {
+            width: 120px;
+            height: 75px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .highlight-text h4 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .highlight-text p {
+            font-size: 0.8rem;
+            color: #aaa;
+            line-height: 1.4;
+        }
+
+        /* --- BOTTOM SECTION --- */
+        .bottom-section {
+            background-color: #0a0a0a;
+            padding: 60px 5%;
+        }
+
+        .bottom-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 24px;
+            transition: background 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: #1a1a1a;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .feature-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
-            .grid-row, .grid-row.reverse {
-                flex-direction: column;
-                gap: 2rem;
-                text-align: center;
+            .hero-left h1 {
+                font-size: 2.5rem;
             }
-            .quote-text {
-                font-size: 1.5rem;
+            .hero::before {
+                background: linear-gradient(180deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.95) 100%);
             }
-            .instagram-cta {
-                font-size: 0.85rem;
-                padding: 12px 20px;
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Awakening</h1>
-        <p>Listen to the audio discourse and reflect on the words below.</p>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            
+            <!-- Left Side: Title, Audio, CTA -->
+            <div class="hero-left">
+                <h1>Awakening (Audio Discourse)</h1>
+                <p class="subtitle">Listen to the discourse and reflect on the journey of life.</p>
+                
+                <div class="audio-wrapper">
+                    <!-- Embedded Audio Player -->
+                    <iframe src="https://audio.com/embed/v2/audio/1875386404036143?theme=dark&layout=fixed&cover=true&footer=true&author=true&watermark=true" style="display:block; border: none; height: 235px;" loading="lazy" data-audiocom-embed></iframe>
+                    <script src="https://audio.com/embed.js" async></script>
+                </div>
+
+                <a href="https://instagram.com/garry.sfe" target="_blank" class="primary-btn">
+                    <!-- Simple Instagram-style Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    Follow @garry.sfe for More
+                </a>
+            </div>
+
+            <!-- Right Side: Glass Cards -->
+            <div class="hero-right">
+                
+                <!-- Info List Card -->
+                <div class="glass-card">
+                    <h3>Information</h3>
+                    <ul class="info-list">
+                        <li><span>Language:</span> <span>English</span></li>
+                        <li><span>Author:</span> <span>Osho</span></li>
+                        <li><span>Audio Quality:</span> <span>High</span></li>
+                        <li><span>Topic:</span> <span>Meditation & Life</span></li>
+                        <li><span>Source Type:</span> <span>Discourse Record</span></li>
+                        <li><span>Curator:</span> <span>@garry-1875385...</span></li>
+                        <li><span>Compatibility:</span> <span>Mobile, PC, Tablet</span></li>
+                    </ul>
+                </div>
+
+                <!-- Highlights Thumbnail Card -->
+                <div class="glass-card">
+                    <div class="highlight-content">
+                        <!-- Second Image as a thumbnail -->
+                        <img src="https://ik.imagekit.io/oshowebworldcr/osho%20(1).jpg" alt="Meditation Moment">
+                        <div class="highlight-text">
+                            <h4>Discourse Highlights</h4>
+                            <p>Experience life in all possible ways — good-bad, bitter-sweet, dark-light. Don't be afraid of experience.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </header>
 
-    <main>
-        <!-- Audio Section -->
-        <section class="audio-container">
-            <div class="audio-wrapper">
-                <!-- Embedded Audio Player -->
-                <iframe src="https://audio.com/embed/v2/audio/1875386404036143?theme=dark&layout=fixed&cover=true&footer=true&author=true&watermark=true" style="display:block; border: none; height: 235px;" loading="lazy" data-audiocom-embed></iframe>
+    <!-- Bottom Section: 3-Column Grid -->
+    <section class="bottom-section">
+        <div class="container">
+            <h2>Reflections from the Discourse</h2>
+            <div class="features-grid">
                 
-                <a href="https://audio.com/garry-1875385333193660" target="_blank" style="text-align: center; display: block; color: #A4ABB6; font-size: 12px; font-family: sans-serif; line-height: 16px; margin-top: 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-decoration: none; transition: color 0.2s;">
-                    @garry-1875385333193660
-                </a>
-                <script src="https://audio.com/embed.js" async></script>
+                <!-- Card 1 -->
+                <div class="feature-card">
+                    <h3>Appreciation</h3>
+                    <p>"If you love a flower, don’t pick it up. Because if you pick it up it dies and it ceases to be what you love. So if you love a flower, let it be. Love is not about possession. Love is about appreciation."</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card">
+                    <h3>Creativity</h3>
+                    <p>"To be creative means to be in love with life. You can be creative only if you love life enough that you want to enhance its beauty, you want to bring a little more music to it, a little more poetry to it."</p>
+                </div>
+
+                <!-- Card 3 (Featuring the 3rd Image) -->
+                <div class="feature-card">
+                    <h3>Deeper Wisdom</h3>
+                    <p>Continue your journey. Follow @garry.sfe on Instagram to access more carefully curated audiobooks and discourses to aid your meditation.</p>
+                    <!-- Third Image -->
+                    <img src="https://ik.imagekit.io/oshowebworldcr/Osho%20Book.jpg" alt="Osho Book Cover">
+                </div>
+
             </div>
-            
-            <!-- Instagram Call to Action -->
-            <a href="https://instagram.com/garry.sfe" target="_blank" class="instagram-cta">
-                Follow @garry.sfe on Instagram for more audiobooks
-            </a>
-        </section>
-
-        <!-- Gallery and Quotes Section -->
-        <section class="content-grid">
-            
-            <!-- Row 1 -->
-            <div class="grid-row">
-                <div class="image-col">
-                    <img src="https://ik.imagekit.io/oshowebworldcr/osho.jpg" alt="Portrait" loading="lazy">
-                </div>
-                <div class="text-col">
-                    <div class="quote-text">
-                        "Experience life in all possible ways — good-bad, bitter-sweet, dark-light, summer-winter. Experience all the dualities. Don't be afraid of experience, because the more experience you have, the more mature you become."
-                    </div>
-                    <div class="quote-author">— Osho</div>
-                </div>
-            </div>
-
-            <!-- Row 2 (Reversed) -->
-            <div class="grid-row reverse">
-                <div class="image-col">
-                    <img src="https://ik.imagekit.io/oshowebworldcr/osho%20(1).jpg" alt="Meditation" loading="lazy">
-                </div>
-                <div class="text-col">
-                    <div class="quote-text">
-                        "If you love a flower, don’t pick it up. Because if you pick it up it dies and it ceases to be what you love. So if you love a flower, let it be. Love is not about possession. Love is about appreciation."
-                    </div>
-                    <div class="quote-author">— Osho</div>
-                </div>
-            </div>
-
-            <!-- Row 3 -->
-            <div class="grid-row">
-                <div class="image-col">
-                    <img src="https://ik.imagekit.io/oshowebworldcr/Osho%20Book.jpg" alt="Book Cover" loading="lazy">
-                </div>
-                <div class="text-col">
-                    <div class="quote-text">
-                        "To be creative means to be in love with life. You can be creative only if you love life enough that you want to enhance its beauty, you want to bring a little more music to it, a little more poetry to it, a little more dance to it."
-                    </div>
-                    <div class="quote-author">— Osho</div>
-                </div>
-            </div>
-
-        </section>
-    </main>
-
-    <footer>
-        <p>Follow <a href="https://instagram.com/garry.sfe" target="_blank">@garry.sfe</a> on Instagram for more audiobooks.</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">&copy; 2026 Osho Web World. All rights reserved.</p>
-    </footer>
+        </div>
+    </section>
 
 </body>
 </html>
