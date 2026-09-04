@@ -7,7 +7,7 @@
     <title>Words of Wisdom & Meditation</title>
     <style>
         /* Import elegant fonts from Google */
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;600&display=swap');
 
         :root {
             --bg-color: #121212;
@@ -34,7 +34,7 @@
 
         header {
             text-align: center;
-            padding: 4rem 2rem 2rem;
+            padding: 4rem 2rem 1rem;
         }
 
         header h1 {
@@ -49,6 +49,52 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
+        }
+
+        /* Chapter Navigation Section */
+        .chapter-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 1rem 2rem 3rem;
+            flex-wrap: wrap;
+        }
+
+        .chapter-nav select {
+            background-color: var(--surface-color);
+            color: var(--text-main);
+            border: 1px solid #333;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+
+        .chapter-nav select:focus, .chapter-nav select:hover {
+            border-color: var(--accent);
+        }
+
+        .dynamic-btn {
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .dynamic-btn:hover {
+            background-color: var(--accent);
+            color: var(--bg-color);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
         }
 
         /* Audio Player Section */
@@ -140,6 +186,14 @@
             header h1 {
                 font-size: 2.2rem;
             }
+            .chapter-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .chapter-nav select {
+                width: 100%;
+                max-width: 300px;
+            }
             .grid-row, .grid-row.reverse {
                 flex-direction: column;
                 gap: 2rem;
@@ -157,6 +211,17 @@
         <h1>Awakening</h1>
         <p>Listen to the audio discourse and reflect on the words below.</p>
     </header>
+
+    <div class="chapter-nav">
+        <select id="chapterSelect" onchange="updateChapterLink()">
+            <option value="Marg.html">1. Marg</option>
+            <option value="Pyaas.html">2. Pyaas</option>
+            <option value="secrectofdeath.html">3. Secret of Death</option>
+            <option value="Dawar.html">4. Dawar</option>
+            <option value="Parvees.html">5. Parvees</option>
+        </select>
+        <a id="dynamicChapterLink" href="https://oshowebworld.github.io/jeevan-ki-khoj-audio-book/Marg.html" class="dynamic-btn">Read Chapter</a>
+    </div>
 
     <main>
         <section class="audio-container">
@@ -214,6 +279,19 @@
     <footer>
         <p>&copy; 2026 Osho Web World. All rights reserved.</p>
     </footer>
+
+    <script>
+        function updateChapterLink() {
+            // Get the selected value from the dropdown
+            const selectedFile = document.getElementById("chapterSelect").value;
+            
+            // Define the base GitHub Pages repository URL
+            const baseUrl = "https://oshowebworld.github.io/jeevan-ki-khoj-audio-book/";
+            
+            // Update the href attribute of the button to the new combined link
+            document.getElementById("dynamicChapterLink").href = baseUrl + selectedFile;
+        }
+    </script>
 
 </body>
 </html>
